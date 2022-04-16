@@ -9,14 +9,16 @@ export default function Register() {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    
+    
+    formState: { error },
   } = useForm();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
 
+  // ERRO na linha 24
   const onSubmit = data => {
     alert(data.name + '\n' + data.email + '\n' + data.password);
     var response = axios.post('')

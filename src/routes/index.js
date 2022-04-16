@@ -11,6 +11,7 @@ export default function RoutesApp() {
     <BrowserRouter>
       <Routes>
         <Route path="/" exect element={<Home />} />
+        <Route path="/homepage" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart/>} />

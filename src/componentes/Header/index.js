@@ -8,12 +8,12 @@ export default function Header() {
     // <div classname="div">
       <Navbar collapseOnSelect expand="lg" bg="danger" variant="dark">
         <Container>
-          <Navbar.Brand href="#">
+          <Navbar.Brand href="/HomePage">
             <img
               className="Logo"
-              src="./logo.png"
+              src="./atelie-logo.png"
               alt=""
-              width="90px"
+              width="170px"
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -34,6 +34,6 @@ export default function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    // </div>
+    //  </div>
   );
 }

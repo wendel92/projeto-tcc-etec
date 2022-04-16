@@ -10,7 +10,7 @@ export default function Login() {
   const {
     register,
     handleSubmit,
-    watch,
+    
     formState: { errors },
   } = useForm();
 
@@ -61,7 +61,8 @@ export default function Login() {
           />
           <span className="focus-input" data-placeholder="Password"></span>
         </div>
-
+         
+        
         <input type="submit" />
 
         <div className="text-center">
