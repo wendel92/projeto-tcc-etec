@@ -6,7 +6,7 @@
 // import { useForm } from "react-hook-form";
 
 
-// /* FORMULARIO PARA CADASTRAR OS DADOS DO CLIENTE */
+/* FORMULARIO PARA CADASTRAR OS DADOS DO CLIENTE */
 // export default function Register () {
 //   const { register, handleSubmit } = useForm();
 //   const [email, setEmail] = useState("");
@@ -15,13 +15,13 @@
 
 //   const onSubmit = data =>{
 //     alert(data);
-//    /* axios.post('http://10.68.22.240:3000/cliente/cadastrarCliente')
+//     axios.post('http://10.68.22.240:3000/cliente/cadastrarCliente')
 //     .then(function(data){
 //       console.log(data);
 
 //     }).catch(function(e){
 //       console.log(e)
-//     });*/
+//     });
 //     //
 //   }
 

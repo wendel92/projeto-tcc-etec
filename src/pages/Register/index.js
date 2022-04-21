@@ -6,22 +6,44 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 
 export default function Register() {
-  const {
-    register,
-    handleSubmit,
-    
-    
-    formState: { error },
-  } = useForm();
-
+  const { register, handleSubmit } = useForm({mode: 'onSubmit'})
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [senha, setSenha] = useState('');
+  const [nome, setNome] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [telefone, setTelefone] = useState('');
+ 
+    
+  
+
+  // const onSubmit = data =>{
+  //   alert(data);
+  //   axios.post('http://10.68.22.240:3000/cliente/cadastrarCliente')
+  //   .then(function(data){
+  //     console.log(data);
+
+  //   }).catch(function(e){
+  //     console.log(e)
+  //   });
+  //   //
+  // }
+    
+     
+  //   formState: { error },
+  // } = useForm(
+  //   {
+  //     mode: 'onSubmit'
+  //   }
+  // );
+  
+
+
+  
 
   // ERRO na linha 24
   const onSubmit = data => {
-    alert(data.name + '\n' + data.email + '\n' + data.password);
-    var response = axios.post('')
+    alert(data.nome + '\n' + data.email + '\n' + data.senha + '\n' + data.telefone + '\n' + data.cpf  ); 
+    axios.post('http://localhost:3000/cadastrarCliente')
     .then(function(data){
       console.log(data);
 
@@ -30,6 +52,15 @@ export default function Register() {
     });
 
   };
+
+   
+  //    /* axios.post('http://10.68.22.240:3000/cliente/cadastrarCliente')
+  //     .then(function(data){
+  //       console.log(data);
+  
+  //     }).catch(function(e){
+  //       console.log(e)
+  //     });
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
@@ -43,15 +74,40 @@ export default function Register() {
         {/* Campo Nome */}
         <div className="wrap-input">
           <input
-            {...register('name')}
-            className={name !== '' ? 'has-val input' : 'input'}
+            {...register('nome')}
+            className={nome !== '' ? 'has-val input' : 'input'}
             type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
+            value={nome}
+            onChange={e => setNome(e.target.value)}
           />
           <span className="focus-input" data-placeholder="Nome"></span>
         </div>
-         
+
+        {/* Campo CPF */}
+        <div className="wrap-input">
+          <input
+            {...register('cpf')}
+            className={cpf !== '' ? 'has-val input' : 'input'}
+            type="number"
+            value={cpf}
+            onChange={e => setCpf(e.target.value)}
+          />
+          <span className="focus-input" data-placeholder="CPF"></span>
+        </div>
+
+        {/* Campo Telefone */}
+        <div className="wrap-input">
+          <input
+            {...register('telefone')}
+            className={telefone !== '' ? 'has-val input' : 'input'}
+            type="text"
+            value={telefone}
+            onChange={e => setTelefone(e.target.value)}
+          />
+          <span className="focus-input" data-placeholder="Telefone"></span>
+        </div>
+
+                 
          {/* Campo email */}
         <div className="wrap-input">
           <input
@@ -67,13 +123,13 @@ export default function Register() {
          {/* Campo Senha */}
         <div className="wrap-input">
           <input
-            {...register('password')}
-            className={password !== '' ? 'has-val input' : 'input'}
+            {...register('senha')}
+            className={senha !== '' ? 'has-val input' : 'input'}
             type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+            value={senha}
+            onChange={e => setSenha(e.target.value)}
           />
-          <span className="focus-input" data-placeholder="Password"></span>
+          <span className="focus-input" data-placeholder="Senha"></span>
         </div>
 
         <input type="submit" />
