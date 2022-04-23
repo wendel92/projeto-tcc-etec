@@ -1,5 +1,7 @@
-.cart{
-  color: bisque;
+.cartIcon svg {
+  color: red;
+  cursor: pointer;
+  font-size: 1.5 em;
 }
 
 
