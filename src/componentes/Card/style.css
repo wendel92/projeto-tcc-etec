@@ -10,7 +10,8 @@
   padding: 10px;
   flex-direction: 'column';
   flex: 1;
-  
+  cursor: pointer;
+    
 }
 
 .description{

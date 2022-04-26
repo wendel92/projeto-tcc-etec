@@ -3,8 +3,11 @@ footer {
   color: #fff;
   height: 400px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content:first baseline;
+  align-items:flex-end;
+  padding: 100px;
+  margin: auto;
+  
 }
 
 

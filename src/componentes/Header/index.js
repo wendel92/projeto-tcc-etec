@@ -1,12 +1,12 @@
 import './style.css'
-import { GrCart } from 'react-icons/gr'
+import { ImCart } from 'react-icons/im'
 import React from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap'
 
 export default function Header() {
   return (
     // <div classname="div">
-    <Navbar collapseOnSelect expand="lg" bg="danger" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="danger" variant="dark" >
       <Container>
         <Navbar.Brand href="/HomePage">
           <img className="Logo" src="./atelie-logo.png" alt="" width="170px" />
@@ -23,7 +23,7 @@ export default function Header() {
 
             <Nav.Link href="cart">
               <div className="cartIcon">
-                <GrCart />
+                <ImCart />
               </div>
             </Nav.Link>
           </Nav>
