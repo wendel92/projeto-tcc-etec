@@ -1,6 +1,7 @@
 import './style.css'
 import React from 'react'
-import Card from '../Card/'
+import Card from '../../componentes/Card'
+import Footer from './../Footer/index';
 
 export default function HomePage() {
   return (
@@ -20,9 +21,7 @@ export default function HomePage() {
       <Card />
       <Card />
       <Card />
-      <Card />
-      <Card />
-      <Card />
+      
     </div>
   )
 }

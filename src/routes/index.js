@@ -5,6 +5,7 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Cart from '../pages/Cart';
 import { BrowserRouter } from 'react-router-dom';
+import SelectedProduct from './../pages/SelectedProduct';
 
 export default function RoutesApp() {
   return (
@@ -15,6 +16,7 @@ export default function RoutesApp() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart/>} />
+        <Route path="/selectedProduct" element={<SelectedProduct/>} />
       </Routes>
     </BrowserRouter>
   );

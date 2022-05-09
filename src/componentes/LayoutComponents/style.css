@@ -3,18 +3,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 body, html {
   font-family: Nunito, sans-serif; 
-  
+  background-color: rgb(226, 223, 223);
   
 }
 
 .container {
   width: 75%;
   margin: 0 auto;
- 
   
 }
 
@@ -26,12 +26,9 @@ body, html {
   align-items: center;
   justify-content: center;
   padding: 35px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(226, 223, 223);
   opacity: valor entre 0 e 1 ;
-  
-  
-  
-  
+    
 }
 
 .wrap-login {
@@ -40,7 +37,7 @@ body, html {
   border-radius: 10px;
   overflow: hidden;
   padding: 77px 55px 33px 55px;
-  box-shadow: 0 5px 10px 0px rgba(109, 108, 108, 0.2);
+  box-shadow: 0 5px 10px 0px #d2d5af;
   
 }
 
@@ -52,10 +49,10 @@ body, html {
   font-family: Nunito, sans-serif;
   display: block;
   font-size: 30px;
-  color: rgb(255, 0, 0);
+  color: #3b657a;
   line-height: 1.2;
   text-align: center;
-  text-shadow: 0.1em 0.1em 0.2em rgb(105, 104, 104);
+  
   
 }
 
@@ -63,7 +60,7 @@ body, html {
 .wrap-input {
   width: 100%;
   position: relative;
-  border-bottom: 2px solid #fdf3f3;
+  border-bottom: 2px solid #d2d5af;
   margin-bottom: 30px;
    
 }
@@ -90,7 +87,7 @@ body, html {
   top: 0;
   left: 0;
   pointer-events: none;
-  color: #b6b5b5;
+  color: #dfa49b;
   font-family: Nunito, sans-serif;
   
 }
@@ -107,17 +104,14 @@ body, html {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #f73e3e;
-  background: -webkit-linear-gradient(to left, #ffee00, #ff0000);
-  background: -o-linear-gradient(to left, #ffee00, #ff0000);
-  background: -moz-linear-gradient(to left, #ffee00, #ff0000);
-  background: linear-gradient(to left, #ffee00, #ff0000);
+  background-color: #dfa49b;
+  
 }
 
 .focus-input::after {
   font-family: Nunito, sans-serif;
   font-size: 15px;
-  color: #000000;
+  color: #3b657a;
   line-height: 1.2;
   content: attr(data-placeholder);
   display: block;
@@ -174,11 +168,8 @@ body, html {
   width: 100%;
   height: 50px;
   text-shadow: 0.1em 0.1em 0.2em rgb(105, 104, 104);
-  background: #ffffff;
-  background: -webkit-linear-gradient(to left, #ffee00, #ff0000);
-  background: -o-linear-gradient(to left, #ffee00, #ff0000);
-  background: -moz-linear-gradient(to left, #ffee00, #ff0000);
-  background: linear-gradient(to left, #ffee00, #ff0000);
+  background: #fd686e;
+  
 }
 
 .login-form-btn:hover {
@@ -192,21 +183,22 @@ body, html {
   align-items: center;
   margin-bottom: 20px;
   margin-top: 20px;
-  text-shadow: 0.1em 0.1em 0.2em rgb(80, 79, 79);
+  text-shadow: 0.1em 0.1em 0.2em #5a3938;
 }
 
 .txt1 {
   font-size: 14px;
   color: #000000;
-  line-height: 1.5;
+  line-height: 1.2;
   padding-right: 5px;
-  text-shadow: 0.1em 0.1em 0.2em rgb(124, 117, 117);
+  
 }
 
 .txt2 {
   font-size: 14px;
-  color: #ff0000;
-  line-height: 1.5;
+  color: #fd686e;
+  line-height: 1.2;
   text-decoration: none;
-  text-shadow: 0.1em 0.1em 0.2em black;
+     
 }
+

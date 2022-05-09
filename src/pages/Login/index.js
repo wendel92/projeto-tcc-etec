@@ -1,11 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import Header from '../../componentes/Header' //IMPORTAÇÃO DO COMPONENTE HEADER PARA A TELA DE LOGIN
+import Header from '../../componentes/Header'
 import { LayoutComponents } from '../../componentes/LayoutComponents'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
 
-// TELA DE LOGIN
+// TELA DE LOGIN - TELA EM ANDAMENTO 
 export default function Login() {
   const navigate = useNavigate()
 
@@ -41,7 +41,6 @@ export default function Login() {
   }
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <form onSubmit={handleSubmit(onSubmit)} className="login-form">
       <Header />
       <LayoutComponents>
@@ -49,7 +48,6 @@ export default function Login() {
           <span className="login-form-title">Login</span>
         </p>
         <span className="login-form-title"></span>
-        {/* register your input into the hook by invoking the "register" function */}
 
         {/* Campo email */}
         <div className="wrap-input">
@@ -72,14 +70,14 @@ export default function Login() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-          <span className="focus-input" data-placeholder="senha"></span>
+          <span className="focus-input" data-placeholder="Senha"></span>
         </div>
 
         {/* Botão de login */}
         <button className="area-botao" onClick={() => navigate('/')}>
           Login
         </button>
-         {/* texto da parte inferior */}
+        {/* texto da parte inferior */}
         <div className="text-center">
           <span className="txt1">Não possui conta? </span>
           <Link className="txt2" to="/register">

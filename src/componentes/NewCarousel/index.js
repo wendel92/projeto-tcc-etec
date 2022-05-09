@@ -8,7 +8,7 @@ export default function NewCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100 images"
-          src="./1carrossel.jpg"
+          src="./carrosel.jfif"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -18,7 +18,7 @@ export default function NewCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 images"
           src="./2carrossel.jpg"
           alt="Second slide"
         />
@@ -29,13 +29,11 @@ export default function NewCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 images"
           src="./3carrossel.jpg"
           alt="Third slide"
         />
-        <Carousel.Caption>
-            
-        </Carousel.Caption>
+        <Carousel.Caption></Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   )

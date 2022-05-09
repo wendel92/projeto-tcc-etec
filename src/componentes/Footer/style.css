@@ -1,12 +1,12 @@
 footer {
-  background-color: rgb(37, 37, 37);
+  background-color: #3b657a;
   color: #fff;
-  height: 400px;
+  height: 200px;
   display: flex;
-  justify-content:first baseline;
+  justify-content: baseline;
   align-items:flex-end;
   padding: 100px;
-  margin: auto;
+  margin: 0 auto;
   
 }
 

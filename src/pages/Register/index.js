@@ -15,15 +15,10 @@ export default function Register() {
 
   const onSubmit = (data) => {
     alert(
-      data.nome +
-        '\n' +
-        data.cpf +
-        '\n' +
-        data.telefone +
-        '\n' +
-        data.email +
-        '\n' +
-        data.senha
+      data.nome + '\n' + data.cpf + '\n' + data.telefone + '\n' + data.email
+      // +
+      // '\n' +
+      // data.senha
     )
 
     const api = axios.create({
@@ -62,7 +57,8 @@ export default function Register() {
   }
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    /* "handleSubmit" validará as entradas antes de chamar a função "onSubmit" */
+
     <form onSubmit={handleSubmit(onSubmit)} className="login-form">
       <Header />
       <LayoutComponents>
@@ -70,7 +66,6 @@ export default function Register() {
           <span className="login-form-title">Cadastre-se</span>
         </p>
         <span className="login-form-title"></span>
-        {/* register your input into the hook by invoking the "register" function */}
 
         {/* Campo Nome */}
         <div className="wrap-input">
@@ -85,14 +80,20 @@ export default function Register() {
         </div>
 
         {/* Campo CPF */}
+
         <div className="wrap-input">
           <input
+            mask="999.999.999-99"
             {...register('cpf')}
             className={cpf !== '' ? 'has-val input' : 'input'}
-            type="number"
+            type=""
             value={cpf}
             onChange={(e) => setCpf(e.target.value)}
           />
+
+          {/* value={cpf}
+            onChange={(e) => setCpf(e.target.value)} */}
+          {/* /> */}
           <span className="focus-input" data-placeholder="CPF"></span>
         </div>
 
@@ -132,12 +133,15 @@ export default function Register() {
           <span className="focus-input" data-placeholder="Senha"></span>
         </div>
 
+        {/* Botão  de Cadastro */}
         <button className="area-botao">Cadastre-se</button>
 
         <div className="text-center">
-          <span className="txt1">Já possui conta? </span>
+          <span className="txt1">
+            <p>Já possui conta?</p>
+          </span>
           <Link className="txt2" to="/login">
-            Acessar com Email e Senha.
+            <p>Acessar com Email e Senha.</p>
           </Link>
         </div>
       </LayoutComponents>

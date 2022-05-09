@@ -1,5 +1,7 @@
-import './style.css';
+//  LayoutComponents está responsavel por fazer a conexão entre os dados de
+// imput dos componentes Login Cadastro incluindo o Css de Ambos
 
+import './style.css';
 
 export const LayoutComponents = (props) => {
   return (
