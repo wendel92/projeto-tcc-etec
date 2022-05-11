@@ -13,6 +13,30 @@ export default function Register() {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
 
+  const CpfCnpjMask = (v) => {
+    v = v.replace(/\D/g, '')
+
+    if (v.length > 11) {
+      v = v.replace(/^(\d{2})(\d)/, '$1.$2')
+      v = v.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+      v = v.replace(/\.(\d{3})(\d)/, '.$1/$2')
+      v = v.replace(/(\d{4})(\d)/, '$1-$2')
+    } else {
+      v = v.replace(/(\d{3})(\d)/, '$1.$2')
+      v = v.replace(/(\d{3})(\d)/, '$1.$2')
+      v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2')
+    }
+
+    return v
+  }
+
+  const formatPhone = (v) => {
+    v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
+    v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+    };
+
   const onSubmit = (data) => {
     alert(
       data.nome + '\n' + data.cpf + '\n' + data.telefone + '\n' + data.email
@@ -83,17 +107,16 @@ export default function Register() {
 
         <div className="wrap-input">
           <input
-            mask="999.999.999-99"
             {...register('cpf')}
             className={cpf !== '' ? 'has-val input' : 'input'}
             type=""
             value={cpf}
-            onChange={(e) => setCpf(e.target.value)}
+            onChange={(e) => {
+              let val = CpfCnpjMask(e.target.value)
+              setCpf(val)
+            }}
           />
 
-          {/* value={cpf}
-            onChange={(e) => setCpf(e.target.value)} */}
-          {/* /> */}
           <span className="focus-input" data-placeholder="CPF"></span>
         </div>
 
@@ -104,7 +127,8 @@ export default function Register() {
             className={telefone !== '' ? 'has-val input' : 'input'}
             type="text"
             value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
+            onChange={(e) => {let val = formatPhone(e.target.value);
+            setTelefone(val)}}
           />
           <span className="focus-input" data-placeholder="Telefone"></span>
         </div>
