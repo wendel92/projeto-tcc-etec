@@ -1,27 +1,69 @@
-import './style.css'
-import { FaFacebookSquare } from 'react-icons/fa'
-import { BsInstagram } from 'react-icons/bs'
-import { MdOutlineAlternateEmail } from 'react-icons/md'
-import { BsTelephone } from 'react-icons/bs'
-import React from 'react'
+import "./style.css";
+import { FaFacebookSquare } from "react-icons/fa";
+import { BsInstagram } from "react-icons/bs";
+import { MdOutlineAlternateEmail } from "react-icons/md";
+import { BsTelephone } from "react-icons/bs";
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPix } from "@fortawesome/free-brands-svg-icons";
+import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
+import { faBarcode } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
   return (
     <footer>
-      <div className="p" />
-      <p>
-        <div>
-          <BsTelephone />
+      <div className="container">
+        <div className="row">
+          {/* Coluna 1 */}
+          <div className="col">
+            <h5>Endereço</h5>
+            <ul className="list-unstyled">
+              <li>Rua Joao de Abreu, 45</li>
+              <li>06655-530</li>
+              <li>Carapicuiba, São Paulo</li>
+            </ul>
+          </div>
+          {/* Coluna 2 */}
+          <div className="col">
+            <h5>Contatos</h5>
+            <ul className="list-unstyled">
+              <li>
+                <a href="(11)3659-8524">
+                  <BsTelephone /> (11)3659-8524
+                </a>
+              </li>
+              <li>
+                <a href="asiluminadas@gmail.com">
+                  <MdOutlineAlternateEmail /> asiluminadas@gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
+          {/* Coluna 3 */}
+          <div className="col">
+            <h5>Pagamentos</h5>
+              <FontAwesomeIcon icon={faBarcode}/>
+              <FontAwesomeIcon icon={faPix} />
+              <FontAwesomeIcon icon={faCreditCard}/>
+          </div>
+          {/* Coluna 4 */}
+          <div className="col">
+            <h5>Redes Socias</h5>
+            <ul className="list-unstyled">
+              <li>
+                <a href="https://www.instagram.com/atelieasiluminadas/">
+                  <BsInstagram /> Instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://facebook.com">
+                  <FaFacebookSquare /> Facebook
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <MdOutlineAlternateEmail />
-        </div>
-        <div>
-          <BsInstagram />
-        </div>
-        <FaFacebookSquare />
-      </p>
-      <div />
+      </div>
     </footer>
-  )
+  );
 }
