@@ -23,14 +23,15 @@ footer {
 }
 
 .row {
-  margin: 0px 13px 0px 13px;
+  padding: 0px 10px;
+  margin-left: 13px;
+  margin-right: 13px;
   justify-content: space-around;
 }
 
 .col {
   line-height: 1.6;
   padding: 10px;
-  
 }
 
 h5 {
