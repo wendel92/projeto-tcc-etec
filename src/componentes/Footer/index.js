@@ -42,9 +42,9 @@ export default function Footer() {
           {/* Coluna 3 */}
           <div className="col">
             <h5>Pagamentos</h5>
-              <FontAwesomeIcon icon={faBarcode}/>
-              <FontAwesomeIcon icon={faPix} />
-              <FontAwesomeIcon icon={faCreditCard}/>
+              <FontAwesomeIcon icon={faBarcode} className="icons"/>
+              <FontAwesomeIcon icon={faPix} className="icons"/>
+              <FontAwesomeIcon icon={faCreditCard} className="icons"/>
           </div>
           {/* Coluna 4 */}
           <div className="col">
