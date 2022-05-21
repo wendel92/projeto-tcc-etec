@@ -6,36 +6,16 @@
 
 .red{
 background-color: #fd686e;
+top:0;
+left: 0;
   
 }
+
+
+
 
 /* .Logo{
 
   margin-top: 10px;
 } */
-
-#toggle::after,
-#toggle::before {
-  content: '';
-  background: currentColor;
-  transition: 0.3s;
-  
-}
-
-#navbar.active #toggle::before {
-  transform: rotate(135deg);
-}
-#navbar.active #toggle::after {
-  transform: rotate(-135deg);
-  top: -7px;
-}
-
-
-
-
-
-
-
-
-
 

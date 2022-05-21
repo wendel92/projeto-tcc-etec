@@ -3,6 +3,7 @@ import { FaFacebookSquare } from 'react-icons/fa'
 import { BsInstagram } from 'react-icons/bs'
 import { MdOutlineAlternateEmail } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 import React from 'react'
 
 export default function Footer() {
@@ -11,15 +12,23 @@ export default function Footer() {
       <div className="p" />
       <p>
         <div>
-          <BsTelephone />
+          <Link to="">
+            <BsTelephone />
+          </Link>
         </div>
         <div>
-          <MdOutlineAlternateEmail />
+          <Link to="">
+            <MdOutlineAlternateEmail />
+          </Link>
         </div>
         <div>
-          <BsInstagram />
+          <Link to="https://instagram.com/atelieasiluminadas">
+            <BsInstagram />
+          </Link>
         </div>
+        <Link to="https://facebook.com/atelieasiluminadas">
         <FaFacebookSquare />
+        </Link>
       </p>
       <div />
     </footer>

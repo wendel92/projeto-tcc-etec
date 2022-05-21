@@ -1,0 +1,37 @@
+SELECT * FROM bd_iluminadas.tbl_produtos;
+
+INSERT INTO bd_iluminadas.tbl_produtos (name_product, description, stock, image, price_product, createdAt, updatedAt)
+VALUES 
+('Aromatizador', 'Aromatizador de ambientes-250ml', 10, 'aromatizador.jpg', 25,'2022-05-12T20:15:00', '2022-05-12T20:15:00');
+INSERT INTO bd_iluminadas.tbl_produtos (name_product, description, stock, image, price_product, createdAt, updatedAt)
+VALUES 
+('Aromatizador Pequeno', 'Aromatizador de ambientes-30ml', 10, 'aromatizadormini.jpg', (12.00), '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Água de Lençóis', 'Aromatizador para o quarto-30ml', 10, 'aguasdelencois.jpg', 8, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Escalda Pé', 'Escalda pé relaxante- 70g', 10, 'escaldaPe.jpg', 10, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Kit Mãe', 'Kit com 3 sabonetes nome mãe, sabonete líquido e mini sabonetes', 10, 'KitMÃE.jpg', (45.00), '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete de Aveia', 'Sabonete Artesanal Hidratante de Aveia - 60g', 10, 'sabonetedeaveia.jpg', 13, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete de Argila', 'Sabonete Artesanal Hidratante de Argila - 60g', 10, 'sabonetedeargila.jpg', 13, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete de Barbatimão', 'Sabonete Artesanal Hidratante de Barbatimão- 60g', 10, 'sabonetedebarbatimao.jpg', 13, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete de Calêndula', 'Sabonete Artesanal Hidratante de Calêndula - 60g', 10, 'sabonetedecalendula.jpg', 13, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete Líquido', 'Sabonete líquido em frasco de vidro 250ml', 10, 'saboneteliquidoG.jpg', 35, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete Líquido', 'Sabonete líquido pequeno-40ml', 10, 'saboneteliquidoP.jpg', 7, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete Flor', 'Sabonete Artesanal Hidratante formato flor- 40g', 10, 'saboneteflort.jpg', 10, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete Rosas', 'Sabonete Artesanal Hidratante formato rosas- 90g', 10, 'saboneterosas.jpg', 12, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete Mãe coração', 'Sabonete Artesanal com nome mãe e caixa para presente - 60g', 10, 'sabonetemae.jpg', 15, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete Mãe Quadrado', 'Sabonete Artesanal com nome mãe - 100g', 10, 'sabonetemaequadrado.jpg', 15, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Sabonete Maracujá', 'Sabonete Artesanal Hidratante de Maracujá - 60g', 10, 'sabonetemaracuja.jpg', 13, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Vela 3 Pinos', 'Vela Aromática com três pavios', 10, 'vela3pinos.jpg', 65, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Vela Cilíndrica', 'Vela Aromática cilíndrica pequena', 10, 'velacilindricap.jpg', 30, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Vela Cilíndrica', 'Vela Aromática cilíndrica média', 10, 'velacilindricaM.jpg', 45, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Vela Decoupage', 'Vela Aromática técnica de decoupage', 10, 'veladecoupage.jpg', 35, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Vela Especiarias', 'Vela Aromática com especiarias cravo e canela', 10, 'velaespeciarias.jpg', 35, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Vela Flutuante', 'Vela Aromática flutuante, ideal para piscinas', 10, 'velaflutuante.jpg', 40, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Vela Pirâmide com nuvem', 'Vela Aromática pirâmide com detalhe branco', 10, 'velapiramidecomnuvem.jpg', 50, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Vela Quadrada com nuvem', 'Vela Aromática quadrada com detalhe branco', 10, 'velaquadradacomnuvem.jpg', 50, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Vela Quadrada', 'Vela Aromática quadrada', 10, 'velaquadrada.jpg', 50, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Caneca Personalizada', 'Caneca de porcelana personalizada por sublimação - 325 ml', 10, 'caneca.jpg', 30, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Caneca Chopp Personalizada', 'Caneca de chopp jateada personalizada por sublimação - 325 ml', 10, 'canecachopp.jpg', 55, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Caneca Espelhada Personalizada', 'Caneca espelhada personalizada por sublimação - 325 ml', 10, 'canecaespelhada.jpg', 45, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Caneca Mágica Personalizada', 'Caneca termossensível personalizada por sublimação - 325 ml', 10, 'caneca.jpg', 50, '2022-05-12T20:15:00', '2022-05-12T20:15:00'),
+('Caneca Pinte e lave', 'Caneca de porcelana personalizada por sublimação - 325 ml', 10, 'caneca.jpg', 30, '2022-05-12T20:15:00', '2022-05-12T20:15:00');
+
