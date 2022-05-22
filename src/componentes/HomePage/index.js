@@ -1,6 +1,5 @@
 import './style.css'
 import React, { useEffect } from 'react'
-import Card from '../Card/'
 import api from '../../services/api'
 import { getAllProducts } from '../../services/products.service'
 import { getAllImages } from '../../services/images.services'
@@ -9,7 +8,7 @@ import Card from '../../componentes/Card'
 export default function HomePage() {
   const [cards, setCards] = React.useState([])
   const [imagens, setImagens] = React.useState([])
- 
+
   const consultarCards = async () => {
     const response = await getAllProducts()
     const lista = []
