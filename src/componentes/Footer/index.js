@@ -18,9 +18,9 @@ export default function Footer() {
           <div className="col">
             <h5>Endereço</h5>
             <ul className="list-unstyled">
-              <li>Rua Joao de Abreu, 45</li>
-              <li>06655-530</li>
-              <li>Carapicuiba, São Paulo</li>
+              <li>Av. Cacilda, 137</li>
+              <li>06322-000</li>
+              <li>Carapicuiba, SP</li>
             </ul>
           </div>
           {/* Coluna 2 */}
@@ -29,7 +29,7 @@ export default function Footer() {
             <ul className="list-unstyled">
               <li>
                 <a href="(11)3659-8524">
-                  <BsTelephone /> (11)3659-8524
+                  <BsTelephone />(11) 3659-8524
                 </a>
               </li>
               <li>
