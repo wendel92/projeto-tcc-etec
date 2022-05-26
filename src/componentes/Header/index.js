@@ -11,21 +11,7 @@ import {
 } from 'react-bootstrap'
 
 export default function Header() {
-  //   const btnMobile = document.getElementById('btn-mobile');
 
-  //   if (event.type === 'touchstart') event.preventDefault();
-  //   const nav = document.getElementById('nav');
-  //   nav.classList.toggle('active');
-  //   const active = nav.classList.contains('active');
-  //   event.currentTarget.setAttribute('aria-expanded', active);
-  //   if (active) {
-  //     event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
-  //   } else {
-  //     event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
-  //   }
-
-  //   btnMobile.addEventListener('click', toggleMenu);
-  // btnMobile.addEventListener('touchstart', toggleMenu);
 
   return (
     // <div classname="div">
@@ -41,7 +27,7 @@ export default function Header() {
           />
         </Navbar.Brand>
 
-        <Navbar.Toggle className="toggle" aria-controls="navbar-nav" />
+        <Navbar.Toggle className="toggle" aria-controls="navbar-nav"/>
         <Navbar.Collapse className="toggle" id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>

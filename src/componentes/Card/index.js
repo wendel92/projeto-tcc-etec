@@ -20,6 +20,7 @@ export default function Card(props) {
           alt={props.nome}
         />
         <p>{props.nome}</p>
+        <p>{props.price_product}</p>
 
         <p>{valor}</p>
       </div>

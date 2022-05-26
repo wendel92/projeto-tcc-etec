@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import { LayoutComponents } from '../../componentes/LayoutComponents'
 import Header from '../../componentes/Header'
 import axios from 'axios'
-import { FiAlertCircle } from 'react-icons/fi'
-import * as yup from 'yup'
+// import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
 import swal from 'sweetalert'
@@ -19,6 +18,7 @@ export default function Register() {
   const [senha, setSenha] = useState('')
 
   const onSubmit = (data) => {
+    // format the cpf field in string
     data.cpfFormated = data.cpf.replace(/\D/g, '')
     data.phoneFormated = data.telefone.replace(/\D/g, '')
 
@@ -50,11 +50,12 @@ export default function Register() {
       data.senha === ''
     ) {
       swal({
+  
         title: 'Ops!',
         text: 'Preencha todos os campos',
         icon: 'warning',
         button: 'OK',
-        // timer: 2000,
+        timer: 2000,
       })
     } else {
       api
@@ -62,8 +63,8 @@ export default function Register() {
           name: data.nome,
           cpf: data.cpfFormated,
           phone: data.phoneFormated,
-          email: data.emailFormated,
-          password: data.senhaFormated,
+          email: data.email,
+          password: data.senha,
         })
         .then(function (data) {
           console.log(data)
@@ -89,7 +90,7 @@ export default function Register() {
   }
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    // CAMPOS DE CADASTRO
     <form onSubmit={handleSubmit(onSubmit)} className="login-form">
       <Header />
       <LayoutComponents>
@@ -101,123 +102,88 @@ export default function Register() {
         {/* register your input into the hook by invoking the "register" function */}
 
         {/* CAMPO NOME */}
-        <div className="wrapperInputDiv">
-          <div className="iconAlert">
-            {/* <Tooltip
-              content="Insira somente Nome!"
-              background="#C3C3C3"
-              fadeEasing="linear"
-              placement="left"
-              color="#000"
-            >
-              <FiAlertCircle />
-            </Tooltip> */}
-          </div>
 
-          <div className="wrap-input inputIn">
-            <input
-              pattern="[a-zA-Z ]+"
-              {...register('nome')}
-              className={nome !== '' ? 'has-val input' : 'input'}
-              type="text"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-              error={nome !== '[a-zA-Z ]+' ? console.log('invalido!') : true} // Validação do campo
-            />
+        <div className="wrap-input inputIn">
+          <input
+            pattern="[a-zA-Z,ã, ã]+"
+            {...register('nome')}
+            className={nome !== '' ? 'has-val input' : 'input'}
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
 
-            <span className="focus-input" data-placeholder="Nome:"></span>
-          </div>
+          <span className="focus-input" data-placeholder="Nome:"></span>
         </div>
+
         {/* Campo CPF */}
-        <div className="wrapperInputDiv">
-          <div className="iconAlert">
-            {/* <Tooltip content="Insira um CPF valido!">
-              <FiAlertCircle />
-            </Tooltip> */}
-          </div>
 
-          <div className="wrap-input inputIn">
-            <InputMask
-              pattern="[0-9,.,-]+"
-              {...register('cpf')}
-              mask="999.999.999-99"
-              maskChar={null}
-              className={cpf !== '' ? 'has-val input' : 'input'}
-              value={cpf}
-              onChange={(e) => setCpf(e.target.value)}
-              error={cpf !== '' ? false : true} // Validação do campo
-            />
+        <div className="wrap-input inputIn">
+          <InputMask
+            pattern="[0-9,.,-]+"
+            {...register('cpf')}
+            mask="999.999.999-99"
+            maskChar={null}
+            className={cpf !== '' ? 'has-val input' : 'input'}
+            value={cpf}
+            onChange={(e) => setCpf(e.target.value)}
+          />
 
-            <span className="focus-input" data-placeholder="CPF:"></span>
-          </div>
+          <span className="focus-input" data-placeholder="CPF:"></span>
+        </div>
 
-          {/* Campo Telefone */}
-          <div className="wrapperInputDiv">
-            {/* <div className="iconAlert">
-              <FiAlertCircle />
-            </div> */}
+        {/* Campo Telefone */}
 
-            <div className="wrap-input inputIn">
-              <InputMask
-                {...register('telefone')}
-                mask="(99) 99999-9999"
-                maskChar={null}
-                className={telefone !== '' ? 'has-val input' : 'input'}
-                value={telefone}
-                onChange={(e) => setTelefone(e.target.value)}
-                error={telefone !== '' ? false : true} // Validação do campo
-              />
+        <div className="wrap-input inputIn">
+          <InputMask
+            {...register('telefone')}
+            mask="(99) 99999-9999"
+            maskChar={null}
+            className={telefone !== '' ? 'has-val input' : 'input'}
+            value={telefone}
+            onChange={(e) => setTelefone(e.target.value)}
+          />
 
-              <span
-                className="focus-input"
-                data-placeholder="Telefone/Celular:"
-              ></span>
-            </div>
-          </div>
+          <span
+            className="focus-input"
+            data-placeholder="Telefone/Celular:"
+          ></span>
+        </div>
 
-          {/* Campo email */}
-          <div className="wrapperInputDiv">
-            {/* <div className="iconAlert">
-              <FiAlertCircle />
-            </div> */}
+        {/* Campo email */}
 
-            <div className="wrap-input inputIn">
-              <input
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                {...register('email')}
-                className={email !== '' ? 'has-val input' : 'input'}
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                error={email !== '' ? false : true} // Validação do campo
-              />
-              <span className="focus-input" data-placeholder="Email:"></span>
-            </div>
+        <div className="wrap-input inputIn">
+          <input
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            {...register('email')}
+            className={email !== '' ? 'has-val input' : 'input'}
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <span className="focus-input" data-placeholder="Email:"></span>
+        </div>
 
-            {/* Campo Senha */}
-            <div className="wrapperInputDiv">
-              <div className="wrap-input inputIn">
-                <input
-                  {...register('senha')}
-                  className={senha !== '' ? 'has-val input' : 'input'}
-                  type="password"
-                  value={senha}
-                  onChange={(e) => setSenha(e.target.value)}
-                  error={senha !== '' ? false : true} // Validação do campo
-                />
-                <span className="focus-input" data-placeholder="Senha:"></span>
-              </div>
+        {/* Campo Senha */}
 
-              <button className="area-botao">Cadastre-se</button>
+        <div className="wrap-input inputIn">
+          <input
+            {...register('senha')}
+            className={senha !== '' ? 'has-val input' : 'input'}
+            type="password"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+          />
+          <span className="focus-input" data-placeholder="Senha:"></span>
+        </div>
 
-              <div className="text-center">
-                <span className="txt1">Já possui conta? </span>
-                <Link className="txt2" to="/login">
-                  Acessar com Email e Senha.
-                </Link>
-              </div>
-            </div>
-          </div>
+        <button className="area-botao">Cadastre-se</button>
+
+        <div className="text-center">
+          <span className="txt1">Já possui conta? </span>
+          <Link className="txt2" to="/login">
+            Acessar com Email e Senha.
+          </Link>
         </div>
       </LayoutComponents>
     </form>

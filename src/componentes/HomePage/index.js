@@ -41,7 +41,7 @@ export default function HomePage() {
           <Card
             imagem={item.image}
             nome={item.name_product}
-            preco={item.price_product}
+            preco={item.price_product.replace('.', ',')}
             id={item.id}
           />
         ))}
