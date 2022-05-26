@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import { LayoutComponents } from '../../componentes/LayoutComponents'
 import Header from '../../componentes/Header'
 import axios from 'axios'
+
+
+import { FiAlertCircle } from 'react-icons/fi'
+
 // import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
