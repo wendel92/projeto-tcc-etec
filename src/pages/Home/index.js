@@ -5,11 +5,11 @@ import Footer from '../../componentes/Footer'
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Header />
       <Carousel />
       <HomePage />
       <Footer />
-    </>
+    </div>
   )
 }

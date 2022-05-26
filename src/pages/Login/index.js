@@ -49,19 +49,19 @@ export default function Login() {
         </p>
         <span className="login-form-title"></span>
 
-        {/* Campo email */}
+        {/* CAMPO EMAIL */}
         <div className="wrap-input">
           <input
             {...register('email')}
             className={email !== '' ? 'has-val input' : 'input'}
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <span className="focus-input" data-placeholder="Email"></span>
         </div>
 
-        {/* Campo Senha */}
+        {/* CAMPO SENHA */}
         <div className="wrap-input">
           <input
             {...register('senha')}
@@ -73,11 +73,12 @@ export default function Login() {
           <span className="focus-input" data-placeholder="Senha"></span>
         </div>
 
-        {/* Botão de login */}
+        {/* BOTÃO DE LOGIN */}
         <button className="area-botao" onClick={() => navigate('/')}>
           Login
         </button>
-        {/* texto da parte inferior */}
+        
+        {/* TEXTO DA PARTE INFERIOR */}
         <div className="text-center">
           <span className="txt1">Não possui conta? </span>
           <Link className="txt2" to="/register">

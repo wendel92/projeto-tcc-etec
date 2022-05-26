@@ -3,19 +3,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
-body, html {
-  font-family: Nunito, sans-serif; 
+body,
+html {
+  font-family: Nunito, sans-serif;
   background-color: rgb(226, 223, 223);
-  
 }
 
 .container {
   width: 75%;
   margin: 0 auto;
-  
 }
 
 .container-login {
@@ -27,8 +25,7 @@ body, html {
   justify-content: center;
   padding: 35px;
   background-color: rgb(226, 223, 223);
-  opacity: valor entre 0 e 1 ;
-    
+  opacity: valor entre 0 e 1;
 }
 
 .wrap-login {
@@ -38,8 +35,36 @@ body, html {
   overflow: hidden;
   padding: 77px 55px 33px 55px;
   box-shadow: 0 5px 10px 0px #d2d5af;
-  
 }
+
+.button-clear {
+  background-color: transparent;
+  border: none;
+  color: #f06c6c;
+  font-size: 20px;
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.wrapperInputDiv {
+  padding: 0 !important;
+
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: end;
+  flex-direction: row;
+  margin-bottom: 6px;
+  margin-top: 0;
+  position: relative;
+}
+
 
 .login-form {
   width: 100%;
@@ -52,17 +77,19 @@ body, html {
   color: #3b657a;
   line-height: 1.2;
   text-align: center;
-  
-  
 }
 
+.iconAlert {
+  position: relative;
+}
 
 .wrap-input {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #d2d5af;
   margin-bottom: 30px;
-   
+  border: #c5c5c5c5 1px solid;
+  border-radius: 5px;
 }
 
 .input {
@@ -76,7 +103,6 @@ body, html {
   background-color: transparent;
   padding: 0 5px;
   font-family: Nunito, sans-serif;
-  
 }
 
 .focus-input {
@@ -89,11 +115,10 @@ body, html {
   pointer-events: none;
   color: #dfa49b;
   font-family: Nunito, sans-serif;
-  
 }
 
 .focus-input::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: -2px;
@@ -105,26 +130,52 @@ body, html {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
   background-color: #dfa49b;
-  
 }
 
 .focus-input::after {
   font-family: Nunito, sans-serif;
   font-size: 15px;
-  color: #3b657a;
-  line-height: 1.2;
+  color: #a4a4a5;
+  line-height: 1;
   content: attr(data-placeholder);
   display: block;
   width: 100%;
   position: absolute;
-  top: 16px;
-  left: 0px;
-  padding-left: 5px;
+  top: 10px;
+  left: 2px;
+  padding-left: 2px;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
-  
+}
+/* Borda dos inputs */
+.inputIn {
+  border: #c5c5c5c5 1px solid;
+  border-radius: 5px;
+}
+
+/* Estilização da validação dos inputs */
+.input:invalid {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  border: rgb(194, 24, 24) 1px solid;
+  border-radius: 5px;
+}
+
+/* Animação da validação */
+@keyframes shake {
+  25% {
+    transform: translateX(4px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .input:focus {
@@ -152,7 +203,6 @@ body, html {
   flex-wrap: wrap;
   justify-content: center;
   padding-bottom: 13px;
- 
 }
 
 .area-botao {
@@ -169,13 +219,11 @@ body, html {
   height: 50px;
   text-shadow: 0.1em 0.1em 0.2em rgb(105, 104, 104);
   background: #fd686e;
-  
 }
 
 .login-form-btn:hover {
   cursor: pointer;
 }
-
 
 .text-center {
   display: flex;
@@ -191,7 +239,6 @@ body, html {
   color: #000000;
   line-height: 1.2;
   padding-right: 5px;
-  
 }
 
 .txt2 {
@@ -199,6 +246,4 @@ body, html {
   color: #fd686e;
   line-height: 1.2;
   text-decoration: none;
-     
 }
-
