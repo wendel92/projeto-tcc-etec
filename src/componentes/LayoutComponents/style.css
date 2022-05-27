@@ -65,7 +65,6 @@ html {
   position: relative;
 }
 
-
 .login-form {
   width: 100%;
 }
@@ -77,10 +76,6 @@ html {
   color: #3b657a;
   line-height: 1.2;
   text-align: center;
-}
-
-.iconAlert {
-  position: relative;
 }
 
 .wrap-input {
@@ -103,6 +98,7 @@ html {
   background-color: transparent;
   padding: 0 5px;
   font-family: Nunito, sans-serif;
+  font-size: 15px;
 }
 
 .focus-input {
@@ -115,6 +111,82 @@ html {
   pointer-events: none;
   color: #dfa49b;
   font-family: Nunito, sans-serif;
+  font-size: small;
+}
+
+.field{
+  color: #000000;
+  font-size: 14px;
+}
+
+.field-nome {
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\f0e0';
+  position: absolute;
+  top: 71%;
+  height: 270px;
+  transform: translateY(-50%);
+  color: #ff0000;
+}
+
+.field-cpf {
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\f0e0';
+  position: absolute;
+  top: 86%;
+  height:270px;
+  transform: translateY(-50%);
+  color: #ff0000;
+}
+
+.field-telefone {
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\f0e0';
+  position: absolute;
+  top: 102%;
+  height: 270px;
+  transform: translateY(-50%);
+  color: #ff0000;
+}
+
+.field-email {
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\f0e0';
+  position: absolute;
+  top: 117%;
+  height: 270px;
+  transform: translateY(-50%);
+  color: #ff0000;
+}
+
+.field-senha {
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\f0e0';
+  position: absolute;
+  top: 132%;
+  height: 270px;
+  transform: translateY(-50%);
+  color: #ff0000;
 }
 
 .focus-input::before {
@@ -134,7 +206,7 @@ html {
 
 .focus-input::after {
   font-family: Nunito, sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   color: #a4a4a5;
   line-height: 1;
   content: attr(data-placeholder);

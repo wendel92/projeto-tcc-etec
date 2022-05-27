@@ -1,4 +1,4 @@
-.home-page {
+div.home-page {
   display: flex;
   align-self: 'center';
   flex-direction: row;

@@ -4,6 +4,7 @@ import Header from '../../componentes/Header'
 import { LayoutComponents } from '../../componentes/LayoutComponents'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
+import swal from 'sweetalert'
 
 // TELA DE LOGIN - TELA EM ANDAMENTO 
 export default function Login() {
@@ -20,13 +21,29 @@ export default function Login() {
   const [senha, setSenha] = useState('')
 
   const onSubmit = (data) => {
-    alert(data.email + '\n' + data.senha)
+    // alert(data.email + '\n' + data.senha)
+
+    
 
     const api = axios.create({
       baseURL: 'http://localhost:8000',
     })
 
-    api
+     // Validate input filling
+     if (
+      data.email === '' ||
+      data.senha === ''
+    ) {
+      swal({
+  
+        title: 'Ops!',
+        text: 'Preencha todos os campos',
+        icon: 'warning',
+        button: 'OK',
+        // timer: 2000,
+      })
+    } else {
+      api
       .post('/login', {
         email: data.email,
         password: data.senha,
@@ -38,7 +55,23 @@ export default function Login() {
       .catch(function (e) {
         console.log(e)
       })
+
+      navigate('/cart')
+      setEmail('')
+      setSenha('')
+
+      swal({
+        title: 'Parabéns!',
+        text: 'Login realizado com sucesso',
+        icon: 'success',
+        button: 'OK',
+        timer: 3000,
+      })
+    }
   }
+
+    
+  
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="login-form">
@@ -50,8 +83,9 @@ export default function Login() {
         <span className="login-form-title"></span>
 
         {/* CAMPO EMAIL */}
-        <div className="wrap-input">
+        <div className="wrap-input inputIn">
           <input
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             {...register('email')}
             className={email !== '' ? 'has-val input' : 'input'}
             type="email"
@@ -62,7 +96,7 @@ export default function Login() {
         </div>
 
         {/* CAMPO SENHA */}
-        <div className="wrap-input">
+        <div className="wrap-input inputIn">
           <input
             {...register('senha')}
             className={senha !== '' ? 'has-val input' : 'input'}
@@ -74,7 +108,7 @@ export default function Login() {
         </div>
 
         {/* BOTÃO DE LOGIN */}
-        <button className="area-botao" onClick={() => navigate('/')}>
+        <button className="area-botao" onClick={() => navigate('')}>
           Login
         </button>
         

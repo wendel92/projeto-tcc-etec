@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom'
 import { LayoutComponents } from '../../componentes/LayoutComponents'
 import Header from '../../componentes/Header'
 import axios from 'axios'
-
-
-import { FiAlertCircle } from 'react-icons/fi'
-
 // import * as yup from 'yup'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import InputMask from 'react-input-mask'
 import swal from 'sweetalert'
+import { ToastContainer, toast } from 'react-toastify'
+
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Register() {
-  const { register, handleSubmit } = useForm({ mode: 'onSubmit' })
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
   const [showIcon, setShowIcon] = useState(false)
   const [nome, setNome] = useState('')
   const [cpf, setCpf] = useState('')
@@ -22,7 +26,6 @@ export default function Register() {
   const [senha, setSenha] = useState('')
 
   const onSubmit = (data) => {
-    // format the cpf field in string
     data.cpfFormated = data.cpf.replace(/\D/g, '')
     data.phoneFormated = data.telefone.replace(/\D/g, '')
 
@@ -45,52 +48,57 @@ export default function Register() {
       'OPTIONS,Accept,Authorization, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Header'
     api.defaults.headers.post['Access-Control-Max-Age'] = '86400'
 
-    // Validate input filling
+    // VALIDAÇÃO DE CAMPOS
     if (
       data.nome === '' ||
       data.cpf === '' ||
       data.telefone === '' ||
       data.email === '' ||
       data.senha === ''
-    ) {
-      swal({
-  
-        title: 'Ops!',
-        text: 'Preencha todos os campos',
-        icon: 'warning',
-        button: 'OK',
-        timer: 2000,
-      })
-    } else {
-      api
-        .post('/cadastrarCliente', {
-          name: data.nome,
-          cpf: data.cpfFormated,
-          phone: data.phoneFormated,
-          email: data.email,
-          password: data.senha,
-        })
-        .then(function (data) {
-          console.log(data)
-        })
-        .catch(function (e) {
-          console.log(e)
-        })
+    )
+      console.log(watch('nome '))
+    console.log(watch('cpf '))
+    console.log(watch('telefone '))
+    console.log(watch('email '))
+    console.log(watch('senha '))
 
-      setNome('')
-      setCpf('')
-      setTelefone('')
-      setEmail('')
-      setSenha('')
+    // {
+    //   swal({
+    //     title: 'Ops!',
+    //     text: 'Preencha todos os campos',
+    //     icon: 'warning',
+    //     button: 'OK',
+    //     // timer: 2000,
+    //   })
 
-      swal({
-        title: 'Parabéns!',
-        text: 'Cadastro realizado com sucesso',
-        icon: 'success',
-        button: 'OK',
-        timer: 3000,
+    api
+      .post('/cadastrarCliente', {
+        name: data.nome,
+        cpf: data.cpfFormated,
+        phone: data.phoneFormated,
+        email: data.email,
+        password: data.senha,
       })
-    }
+      .then(function (data) {
+        console.log(data)
+      })
+      .catch(function (e) {
+        console.log(e)
+      })
+
+    setNome('')
+    setCpf('')
+    setTelefone('')
+    setEmail('')
+    setSenha('')
+
+    swal({
+      title: 'Parabéns!',
+      text: 'Cadastro realizado com sucesso',
+      icon: 'success',
+      button: 'OK',
+      timer: 3000,
+    })
   }
 
   return (
@@ -103,83 +111,87 @@ export default function Register() {
         </p>
         <span className="login-form-title"></span>
 
-        {/* register your input into the hook by invoking the "register" function */}
-
         {/* CAMPO NOME */}
-
+        <span className="field">Nome*</span>
         <div className="wrap-input inputIn">
           <input
-            pattern="[a-zA-Z,ã, ã]+"
-            {...register('nome')}
+            pattern="^[a-zA-Z,ã,é ]*$"
+            {...register('nome', { required: true })}
             className={nome !== '' ? 'has-val input' : 'input'}
             type="text"
             value={nome}
             onChange={(e) => setNome(e.target.value)}
+            placeholder="Ex: João da Silva"
           />
-
-          <span className="focus-input" data-placeholder="Nome:"></span>
         </div>
+        {errors.nome && <span className="field-nome">O campo Nome é obrigatório*</span>}
 
         {/* Campo CPF */}
-
+        <span className="field">CPF*</span>
         <div className="wrap-input inputIn">
           <InputMask
             pattern="[0-9,.,-]+"
-            {...register('cpf')}
+            {...register('cpf', { required: true })}
             mask="999.999.999-99"
             maskChar={null}
             className={cpf !== '' ? 'has-val input' : 'input'}
             value={cpf}
             onChange={(e) => setCpf(e.target.value)}
+            placeholder="Ex: 000.000.000-00"
           />
-
-          <span className="focus-input" data-placeholder="CPF:"></span>
         </div>
+        {errors.cpf && <span className="field-cpf">O campo CPF é obrigatório*</span>}
 
         {/* Campo Telefone */}
-
+        <span className="field">Telefone*</span>
         <div className="wrap-input inputIn">
           <InputMask
-            {...register('telefone')}
+            {...register('telefone', { required: true })}
+            pattern="[(,),0-9,.,- ]+"
             mask="(99) 99999-9999"
             maskChar={null}
             className={telefone !== '' ? 'has-val input' : 'input'}
             value={telefone}
             onChange={(e) => setTelefone(e.target.value)}
+            placeholder="Ex: (00) 00000-0000"
           />
-
-          <span
-            className="focus-input"
-            data-placeholder="Telefone/Celular:"
-          ></span>
         </div>
+        {errors.telefone && (
+          <span className="field-telefone">O campo Telefone é obrigatório*</span>
+        )}
 
         {/* Campo email */}
-
+        <span className="field">Email*</span>
         <div className="wrap-input inputIn">
           <input
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            {...register('email')}
+            {...register('email', { required: true })}
             className={email !== '' ? 'has-val input' : 'input'}
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Ex: nome.sobrenome@dominio.com"
           />
-          <span className="focus-input" data-placeholder="Email:"></span>
         </div>
+        {errors.email && (
+          <span className="field-email">O campo Email é obrigatório*</span>
+        )}
 
         {/* Campo Senha */}
-
+        <span className="field">Senha*</span>
         <div className="wrap-input inputIn">
           <input
-            {...register('senha')}
+            {...register('senha', { required: true })}
             className={senha !== '' ? 'has-val input' : 'input'}
             type="password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
+            placeholder="Ex: ******"
           />
-          <span className="focus-input" data-placeholder="Senha:"></span>
         </div>
+        {errors.senha && (
+          <span className="field-senha">O campo Senha é obrigatório*</span>
+        )}
 
         <button className="area-botao">Cadastre-se</button>
 
