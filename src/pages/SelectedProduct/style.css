@@ -8,7 +8,7 @@
 
 .cont2 {
   display: flex;
-  background-color: white;
+  background-color: (105, 104, 104);
   width: 74%;
   flex-direction: column;
   flex-wrap: wrap;
@@ -60,7 +60,7 @@
   flex-wrap: wrap;
   min-height: 100px;
   margin: 0% 13% 10% 13%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(105, 104, 104);
   
 }
 

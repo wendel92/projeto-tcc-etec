@@ -1,13 +1,11 @@
 import './style.css'
 import React, { useEffect } from 'react'
-import api from '../../services/api'
 import { getAllProducts } from '../../services/products.service'
-import { getAllImages } from '../../services/images.services'
 import Card from '../../componentes/Card'
 
 export default function HomePage() {
   const [cards, setCards] = React.useState([])
-  const [imagens, setImagens] = React.useState([])
+  
 
   const consultarCards = async () => {
     const response = await getAllProducts()
@@ -19,16 +17,6 @@ export default function HomePage() {
     setCards(lista)
   }
 
-  const consultarImages = async () => {
-    const response = await getAllImages()
-    const lista = []
-
-    response.map((imagem) => {
-      lista.push(imagem)
-    })
-    setImagens(lista)
-  }
-
   useEffect(() => {
     consultarCards()
     // consultarImagens()
@@ -37,12 +25,14 @@ export default function HomePage() {
   return (
     <div className="home-page">
       {cards &&
-        cards.map((item, index) => (
+        cards.map((item, img, index) => (
           <Card
-            imagem={item.image}
+            imagem={img.image}
             nome={item.name_product}
             preco={item.price_product.replace('.', ',')}
+            stock={item.stock}
             id={item.id}
+            key={item.id}
           />
         ))}
     </div>

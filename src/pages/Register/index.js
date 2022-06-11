@@ -4,12 +4,12 @@ import { LayoutComponents } from '../../componentes/LayoutComponents'
 import Header from '../../componentes/Header'
 import axios from 'axios'
 // import * as yup from 'yup'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
 import swal from 'sweetalert'
-import { ToastContainer, toast } from 'react-toastify'
+// import { ToastContainer, toast } from 'react-toastify'
 
-import 'react-toastify/dist/ReactToastify.css'
+// import 'react-toastify/dist/ReactToastify.css'
 
 export default function Register() {
   const {
@@ -18,7 +18,7 @@ export default function Register() {
     watch,
     formState: { errors },
   } = useForm()
-  const [showIcon, setShowIcon] = useState(false)
+
   const [nome, setNome] = useState('')
   const [cpf, setCpf] = useState('')
   const [telefone, setTelefone] = useState('')
@@ -123,8 +123,10 @@ export default function Register() {
             onChange={(e) => setNome(e.target.value)}
             placeholder="Ex: João da Silva"
           />
+          {errors.nome && (
+            <span className="field-nome">Preencha o campo NOME*</span>
+          )}
         </div>
-        {errors.nome && <span className="field-nome">O campo Nome é obrigatório*</span>}
 
         {/* Campo CPF */}
         <span className="field">CPF*</span>
@@ -139,8 +141,10 @@ export default function Register() {
             onChange={(e) => setCpf(e.target.value)}
             placeholder="Ex: 000.000.000-00"
           />
+          {errors.cpf && (
+            <span className="field-cpf">Preencha o campo CPF*</span>
+          )}
         </div>
-        {errors.cpf && <span className="field-cpf">O campo CPF é obrigatório*</span>}
 
         {/* Campo Telefone */}
         <span className="field">Telefone*</span>
@@ -155,10 +159,12 @@ export default function Register() {
             onChange={(e) => setTelefone(e.target.value)}
             placeholder="Ex: (00) 00000-0000"
           />
+          {errors.telefone && (
+            <span className="field-telefone">
+              Preencha o campo TELEFONE*
+            </span>
+          )}
         </div>
-        {errors.telefone && (
-          <span className="field-telefone">O campo Telefone é obrigatório*</span>
-        )}
 
         {/* Campo email */}
         <span className="field">Email*</span>
@@ -172,10 +178,10 @@ export default function Register() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Ex: nome.sobrenome@dominio.com"
           />
+          {errors.email && (
+            <span className="field-email">Preencha o campo EMAIL*</span>
+          )}
         </div>
-        {errors.email && (
-          <span className="field-email">O campo Email é obrigatório*</span>
-        )}
 
         {/* Campo Senha */}
         <span className="field">Senha*</span>
@@ -188,10 +194,10 @@ export default function Register() {
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Ex: ******"
           />
+          {errors.senha && (
+            <span className="field-senha">Preencha o campo SENHA*</span>
+          )}
         </div>
-        {errors.senha && (
-          <span className="field-senha">O campo Senha é obrigatório*</span>
-        )}
 
         <button className="area-botao">Cadastre-se</button>
 

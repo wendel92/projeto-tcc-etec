@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../../componentes/Header'
@@ -6,7 +7,7 @@ import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import swal from 'sweetalert'
 
-// TELA DE LOGIN - TELA EM ANDAMENTO 
+// TELA DE LOGIN - TELA EM ANDAMENTO
 export default function Login() {
   const navigate = useNavigate()
 
@@ -23,19 +24,13 @@ export default function Login() {
   const onSubmit = (data) => {
     // alert(data.email + '\n' + data.senha)
 
-    
-
     const api = axios.create({
       baseURL: 'http://localhost:8000',
     })
 
-     // Validate input filling
-     if (
-      data.email === '' ||
-      data.senha === ''
-    ) {
+    // Validate input filling
+    if (data.email === '' || data.senha === '') {
       swal({
-  
         title: 'Ops!',
         text: 'Preencha todos os campos',
         icon: 'warning',
@@ -44,17 +39,17 @@ export default function Login() {
       })
     } else {
       api
-      .post('/login', {
-        email: data.email,
-        password: data.senha,
-      })
+        .post('/login', {
+          email: data.email,
+          password: data.senha,
+        })
 
-      .then(function (data) {
-        console.log(data)
-      })
-      .catch(function (e) {
-        console.log(e)
-      })
+        .then(function(data) {
+          console.log(data)
+        })
+        .catch(function(e) {
+          console.log(e)
+        })
 
       navigate('/cart')
       setEmail('')
@@ -70,9 +65,6 @@ export default function Login() {
     }
   }
 
-    
-  
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="login-form">
       <Header />
@@ -85,7 +77,7 @@ export default function Login() {
         {/* CAMPO EMAIL */}
         <div className="wrap-input inputIn">
           <input
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             {...register('email')}
             className={email !== '' ? 'has-val input' : 'input'}
             type="email"
@@ -111,7 +103,7 @@ export default function Login() {
         <button className="area-botao" onClick={() => navigate('')}>
           Login
         </button>
-        
+
         {/* TEXTO DA PARTE INFERIOR */}
         <div className="text-center">
           <span className="txt1">Não possui conta? </span>

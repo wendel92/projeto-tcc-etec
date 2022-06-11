@@ -1,6 +1,8 @@
 import './style.css'
 import React, { useEffect, useState } from 'react'
 import api from '../../services/api'
+import { Image } from 'react-bootstrap' 
+
 
 export default function Card(props) {
   const [user, setUser] = useState()
@@ -14,13 +16,12 @@ export default function Card(props) {
   return (
     <div className="card-container">
       <div className="description">
-        <img
+        <Image source
           className="productImage"
           src={'./uploads/' + props.imagem}
           alt={props.nome}
         />
         <p>{props.nome}</p>
-        <p>{props.price_product}</p>
 
         <p>{valor}</p>
       </div>
