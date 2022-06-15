@@ -11,7 +11,7 @@
 
 // // import { useNavigate } from 'react-router-dom'
 
-// export default function SelectedProduct(props) {
+// export default function SelectedProduct(produtos) {
 //   const location = useLocation()
 //   const [produtoSelecionado, setProdutoSelecionado] = useState()
 //   const idDoProduto = location.state.id
@@ -28,23 +28,14 @@
 
 //   async function getProductsData() {
 //     const data = await axios
-//       .get(api + '/listarProduto/', { params: { id: idDoProduto } })
+//       .get(api + '/listarProduto/id/', { params: { id: idDoProduto } })
 //       .then((response) => {
 //         console.log(response.data)
 //         setProdutoSelecionado(response.data)
 //       })
 //   }
 
-//   useEffect(() => {
-//     axios
-//     .get(api + '/listarProduto/', { params: { id: idDoProduto } })
-//     .then((response) => {
-//       console.log(response.data)
-//       setProdutoSelecionado(response.data)
-//     })
-//   }, [])
 
-//   console.log(props.id)
 
 //   return (
 //     <div className="main-container">
@@ -55,16 +46,16 @@
 //             <div className="col">
 //               <div
 //                 className="img"
-//                 src={'/uploads/' + props.imagem}
-//                 alt={props.nome}
+//                 src={'/uploads/' + produtos.imagem}
+//                 alt={produtos.id}
 //               ></div>
 //             </div>
 //             <div className="col">
 //               <br />
 //               <br />
-//               <h2 className="mb mt">{props.name_product}</h2>
-//               <h3 className="mb">{props.price_product}</h3>
-//               <h3>{props.stock}</h3>
+//               <h2 className="mb mt">{produtos.name_product}</h2>
+//               <h3 className="mb">{produtos.price_product}</h3>
+//               <h3>{produtos.stock}</h3>
 //               <h3 className="mb">{valor}</h3>
 //               <br />
 

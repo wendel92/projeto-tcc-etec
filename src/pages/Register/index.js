@@ -62,14 +62,15 @@ export default function Register() {
     console.log(watch('email '))
     console.log(watch('senha '))
 
-    // {
-    //   swal({
-    //     title: 'Ops!',
-    //     text: 'Preencha todos os campos',
-    //     icon: 'warning',
-    //     button: 'OK',
-    //     // timer: 2000,
-    //   })
+    {
+      swal({
+        title: 'Ops!',
+        text: 'Preencha todos os campos',
+        icon: 'warning',
+        button: 'OK',
+        // timer: 2000,
+      })
+    }
 
     api
       .post('/cadastrarCliente', {

@@ -5,28 +5,39 @@ import Header from '../../componentes/Header'
 import Footer from '../../componentes/Footer'
 import Card from '../../componentes/Card'
 import { Button } from 'react-bootstrap'
-import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
-import axios from 'axios'
-// import { useNavigate } from 'react-router-dom'
+// import { useEffect, useState } from 'react'
+// import { useLocation } from 'react-router-dom'
+// import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
-export default function SelectedProduct(props) {
-  const location = useLocation()
-  const [produtoSelecionado, setProdutoSelecionado] = useState()
-  const idDoProduto = location.state.id
 
-  console.log(idDoProduto)
 
-  const localhost = 'http://localhost:8000'
+export default function SelectedProduct() {
+  // const location = useLocation()
+  // const [produtoSelecionado, setProdutoSelecionado] = useState()
+  // const idDoProduto = location.state.id
+  
+  const navigate = useNavigate("/selectedProduct")
+  // useEffect(() => {
+  //   axios.get(`http://localhost:8000/listarProduto/${idDoProduto}`)
+  //   .then(response => {
+  //     setProdutoSelecionado(response.data)
+  //   }
+  //   )
+  // }, [])
 
-  async function getProductsData() {
-    const data = await axios.get(`${localhost}/listarProdutoID/${idDoProduto}`)
-    setProdutoSelecionado(data.data)
-  }
+  // console.log(idDoProduto)
 
-  useEffect(() => {
-    getProductsData()
-  }, [])
+  // const localhost = 'http://localhost:8000'
+
+  // async function getProductsData() {
+  //   // const data = await axios.get(`${localhost}/listarProduto/${idDoProduto}`)
+  //   // setProdutoSelecionado(data.data)
+  // }
+
+  // useEffect(() => {
+  //   getProductsData()
+  // }, [])
 
   // console.log(props.imagem.id)
 
@@ -38,21 +49,19 @@ export default function SelectedProduct(props) {
           <div className="row">
             <div className="col">
               <div className="img">
-                <Card
+                <Card 
                   className="img"
-                  src={'./uploads/' + props.image}
-                  alt={props.nome}
+                  src={""}
+                  alt={""}
                 ></Card>
               </div>
             </div>
             <div className="col">
               <br />
               <br />
-              <h2 className="mb mt">{props.nome}</h2>
-              <h3 className="mb">{props.price_product}</h3>
-
+              {/* <h2 className="mb mt">{produtoSelecionado.nome}</h2>
+              <h3 className="mb">{produtoSelecionado.price_product}</h3> */}
               <br />
-
               <Button className="btn">Comprar Agora</Button>
               <Button className="btn">Adicionar ao Carrinho</Button>
             </div>

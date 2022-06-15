@@ -7,6 +7,14 @@ export default function HomePage() {
   const [cards, setCards] = React.useState([])
   
 
+  useEffect(() => {
+    getAllProducts().then(res => {
+      setCards(res.data)
+    }
+    )
+  }, [])
+ 
+
   const consultarCards = async () => {
     const response = await getAllProducts()
     const lista = []
@@ -22,19 +30,23 @@ export default function HomePage() {
     // consultarImagens()
   }, [])
 
+ 
+
   return (
     <div className="home-page">
       {cards &&
-        cards.map((item, img, index) => (
+        cards.map((produtos, index) => (
           <Card
-            imagem={img.image}
-            nome={item.name_product}
-            preco={item.price_product.replace('.', ',')}
-            stock={item.stock}
-            id={item.id}
-            key={item.id}
+            nome={produtos.name_product}
+            preco={produtos.price_product.replace('.', ',')}
+            stock={produtos.stock}
+            imagem={produtos.file}
+            descricao={produtos.description}
+            id={produtos.id}
+            key={index}
           />
         ))}
+        
     </div>
   )
 }

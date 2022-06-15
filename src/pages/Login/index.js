@@ -74,30 +74,39 @@ export default function Login() {
         </p>
         <span className="login-form-title"></span>
 
-        {/* CAMPO EMAIL */}
+         {/* Campo email */}
+         <span className="field">Email*</span>
         <div className="wrap-input inputIn">
           <input
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            {...register('email')}
+            {...register('email', { required: true })}
             className={email !== '' ? 'has-val input' : 'input'}
-            type="email"
+            type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Ex: nome.sobrenome@dominio.com"
           />
-          <span className="focus-input" data-placeholder="Email"></span>
+          {errors.email && (
+            <span className="field-email">Preencha o campo EMAIL*</span>
+          )}
         </div>
 
-        {/* CAMPO SENHA */}
+         {/* Campo Senha */}
+         <span className="field">Senha*</span>
         <div className="wrap-input inputIn">
           <input
-            {...register('senha')}
+            {...register('senha', { required: true })}
             className={senha !== '' ? 'has-val input' : 'input'}
             type="password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
+            placeholder="Ex: ******"
           />
-          <span className="focus-input" data-placeholder="Senha"></span>
+          {errors.senha && (
+            <span className="field-senha">Preencha o campo SENHA*</span>
+          )}
         </div>
+
 
         {/* BOTÃO DE LOGIN */}
         <button className="area-botao" onClick={() => navigate('')}>
