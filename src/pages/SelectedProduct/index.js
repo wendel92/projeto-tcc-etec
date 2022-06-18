@@ -4,42 +4,72 @@ import React from 'react'
 import Header from '../../componentes/Header'
 import Footer from '../../componentes/Footer'
 import Card from '../../componentes/Card'
-import { Button } from 'react-bootstrap'
-// import { useEffect, useState } from 'react'
-// import { useLocation } from 'react-router-dom'
-// import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
+export default function SelectedProduct(props) {
+  const location = useLocation()
+  const idDoProduto = location.state.id
+  const nomeDoProduto = location.state.nome_prod
+  const imagemProduto = location.state.imagem_prod
+  const valorDoProduto = location.state.preco_prod
 
+  console.log(idDoProduto)
 
-export default function SelectedProduct() {
-  // const location = useLocation()
-  // const [produtoSelecionado, setProdutoSelecionado] = useState()
-  // const idDoProduto = location.state.id
-  
-  const navigate = useNavigate("/selectedProduct")
+  function componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+  useEffect(() => {
+    componentDidMount()
+  }, [])
+
+  const navigate = useNavigate()
+
+  //   useEffect(() => {
+  //     getProductById()
+  //       .then((res) => {
+  //         setData(res.data)
+  //       })
+  //       .catch((err) => {
+  //         console.log(err)
+  //       })
+  //   }, [])
+
+  // function getProductData() {
+  //   axios
+  //      .get(`http://localhost:8000/listarProduto/${idDoProduto}`)
+  //     , {
+  //       params: { id: idDoProduto },
+  //     }
+  //     .then((response) => {
+  //       console.log(response.data)
+  //       setProdutoSelecionado(response.data)
+  //     }
+  //     )
+  // }
+
+  // .get('http://localhost:8000/listarProduto/id/', {
+
+  // const navigate = useNavigate("/selectedProduct")
   // useEffect(() => {
-  //   axios.get(`http://localhost:8000/listarProduto/${idDoProduto}`)
-  //   .then(response => {
-  //     setProdutoSelecionado(response.data)
-  //   }
-  //   )
+  //   axios
+  //     .get(`http://localhost:8000/listarProduto/${idDoProduto}`)
+  //     .then((response) => {
+  //       setProdutoSelecionado(response.data)
+  //     })
   // }, [])
-
-  // console.log(idDoProduto)
 
   // const localhost = 'http://localhost:8000'
 
-  // async function getProductsData() {
-  //   // const data = await axios.get(`${localhost}/listarProduto/${idDoProduto}`)
-  //   // setProdutoSelecionado(data.data)
+  // async function getProductsData(props) {
+  //   const data = await axios.get(`${localhost}/listarProduto/${idDoProduto}`)
+  //   setProdutoSelecionado(data.data)
+  //   console.log(props.imagem.id)
   // }
 
   // useEffect(() => {
   //   getProductsData()
   // }, [])
-
-  // console.log(props.imagem.id)
 
   return (
     <div className="main-container">
@@ -49,21 +79,28 @@ export default function SelectedProduct() {
           <div className="row">
             <div className="col">
               <div className="img">
-                <Card 
-                  className="img"
-                  src={""}
-                  alt={""}
-                ></Card>
+                <Card
+                  nome={nomeDoProduto}
+                  preco={valorDoProduto}
+                  imagem={imagemProduto}
+                />
               </div>
             </div>
             <div className="col">
               <br />
               <br />
-              {/* <h2 className="mb mt">{produtoSelecionado.nome}</h2>
-              <h3 className="mb">{produtoSelecionado.price_product}</h3> */}
+              <h2 className="mb mt">{nomeDoProduto}</h2>
+              <h3 className="mb">{valorDoProduto}</h3>
               <br />
-              <Button className="btn">Comprar Agora</Button>
-              <Button className="btn">Adicionar ao Carrinho</Button>
+              <button className="btn" onClick={() => navigate('/homepage')}>
+                COMPRAR AGORA
+              </button>
+              <br />
+              <button className="btn" onClick={() => navigate('/homepage')}>
+                ADICIONAR AO CARRINHO
+              </button>
+              <br />
+              <br />
             </div>
             <h4>Descrição</h4>
             <span>
@@ -76,11 +113,7 @@ export default function SelectedProduct() {
             <div className="col">
               <h4 className="txt-prodSem">Produtos Semelhantes</h4>
             </div>
-            <div className="home-page">
-              <Card />
-              <Card />
-              <Card />
-            </div>
+            <div className="home-page"></div>
           </div>
         </div>
       </div>

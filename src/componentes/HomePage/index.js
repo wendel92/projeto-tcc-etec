@@ -31,7 +31,6 @@ export default function HomePage() {
   }, [])
 
  
-
   return (
     <div className="home-page">
       {cards &&
@@ -40,7 +39,7 @@ export default function HomePage() {
             nome={produtos.name_product}
             preco={produtos.price_product.replace('.', ',')}
             stock={produtos.stock}
-            imagem={produtos.file}
+            imagem={produtos.image}
             descricao={produtos.description}
             id={produtos.id}
             key={index}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../../componentes/Header'
@@ -44,14 +44,13 @@ export default function Login() {
           password: data.senha,
         })
 
-        .then(function(data) {
+        .then(function (data) {
           console.log(data)
         })
-        .catch(function(e) {
+        .catch(function (e) {
           console.log(e)
         })
 
-      navigate('/cart')
       setEmail('')
       setSenha('')
 
@@ -74,8 +73,8 @@ export default function Login() {
         </p>
         <span className="login-form-title"></span>
 
-         {/* Campo email */}
-         <span className="field">Email*</span>
+        {/* Campo email */}
+        <span className="field">Email*</span>
         <div className="wrap-input inputIn">
           <input
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -91,8 +90,8 @@ export default function Login() {
           )}
         </div>
 
-         {/* Campo Senha */}
-         <span className="field">Senha*</span>
+        {/* Campo Senha */}
+        <span className="field">Senha*</span>
         <div className="wrap-input inputIn">
           <input
             {...register('senha', { required: true })}
@@ -107,9 +106,8 @@ export default function Login() {
           )}
         </div>
 
-
         {/* BOTÃO DE LOGIN */}
-        <button className="area-botao" onClick={() => navigate('')}>
+        <button className="area-botao" onClick={() => navigate('/homepage')}>
           Login
         </button>
 
