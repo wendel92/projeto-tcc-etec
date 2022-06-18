@@ -1,11 +1,13 @@
+import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../../componentes/Header'
 import { LayoutComponents } from '../../componentes/LayoutComponents'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
+import swal from 'sweetalert'
 
-// TELA DE LOGIN - TELA EM ANDAMENTO 
+// TELA DE LOGIN - TELA EM ANDAMENTO
 export default function Login() {
   const navigate = useNavigate()
 
@@ -20,24 +22,46 @@ export default function Login() {
   const [senha, setSenha] = useState('')
 
   const onSubmit = (data) => {
-    alert(data.email + '\n' + data.senha)
+    // alert(data.email + '\n' + data.senha)
 
     const api = axios.create({
       baseURL: 'http://localhost:8000',
     })
 
-    api
-      .post('/login', {
-        email: data.email,
-        password: data.senha,
+    // Validate input filling
+    if (data.email === '' || data.senha === '') {
+      swal({
+        title: 'Ops!',
+        text: 'Preencha todos os campos',
+        icon: 'warning',
+        button: 'OK',
+        // timer: 2000,
       })
+    } else {
+      api
+        .post('/login', {
+          email: data.email,
+          password: data.senha,
+        })
 
-      .then(function (data) {
-        console.log(data)
+        .then(function (data) {
+          console.log(data)
+        })
+        .catch(function (e) {
+          console.log(e)
+        })
+
+      setEmail('')
+      setSenha('')
+
+      swal({
+        title: 'Parabéns!',
+        text: 'Login realizado com sucesso',
+        icon: 'success',
+        button: 'OK',
+        timer: 3000,
       })
-      .catch(function (e) {
-        console.log(e)
-      })
+    }
   }
 
   return (
@@ -49,35 +73,44 @@ export default function Login() {
         </p>
         <span className="login-form-title"></span>
 
-        {/* CAMPO EMAIL */}
-        <div className="wrap-input">
+        {/* Campo email */}
+        <span className="field">Email*</span>
+        <div className="wrap-input inputIn">
           <input
-            {...register('email')}
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            {...register('email', { required: true })}
             className={email !== '' ? 'has-val input' : 'input'}
-            type="email"
+            type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Ex: nome.sobrenome@dominio.com"
           />
-          <span className="focus-input" data-placeholder="Email"></span>
+          {errors.email && (
+            <span className="field-email">Preencha o campo EMAIL*</span>
+          )}
         </div>
 
-        {/* CAMPO SENHA */}
-        <div className="wrap-input">
+        {/* Campo Senha */}
+        <span className="field">Senha*</span>
+        <div className="wrap-input inputIn">
           <input
-            {...register('senha')}
+            {...register('senha', { required: true })}
             className={senha !== '' ? 'has-val input' : 'input'}
             type="password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
+            placeholder="Ex: ******"
           />
-          <span className="focus-input" data-placeholder="Senha"></span>
+          {errors.senha && (
+            <span className="field-senha">Preencha o campo SENHA*</span>
+          )}
         </div>
 
         {/* BOTÃO DE LOGIN */}
-        <button className="area-botao" onClick={() => navigate('/')}>
+        <button className="area-botao" onClick={() => navigate('/homepage')}>
           Login
         </button>
-        
+
         {/* TEXTO DA PARTE INFERIOR */}
         <div className="text-center">
           <span className="txt1">Não possui conta? </span>

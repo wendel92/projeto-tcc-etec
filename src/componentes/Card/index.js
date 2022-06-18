@@ -8,9 +8,10 @@ export default function Card(props) {
 
   useEffect(() => {
     setValor(props.preco.replace('.', ','))
-  }, [])
+  }, [props.preco])
 
   // Adicionando informações do bd no card.
+  
   return (
     <div className="card-container">
       <div className="description">

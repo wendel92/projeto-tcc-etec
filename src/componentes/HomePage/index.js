@@ -4,6 +4,8 @@ import api from '../../services/api'
 import { getAllProducts } from '../../services/products.service'
 import { getAllImages } from '../../services/images.services'
 import Card from '../../componentes/Card'
+import Link from 'react'
+import SelectedProduct from '../../pages/SelectedProduct'
 
 export default function HomePage() {
   const [cards, setCards] = React.useState([])
@@ -33,7 +35,7 @@ export default function HomePage() {
     consultarCards()
     // consultarImagens()
   }, [])
-
+  
   return (
     <div className="home-page">
       {cards &&
@@ -43,8 +45,11 @@ export default function HomePage() {
             nome={item.name_product}
             preco={item.price_product}
             id={item.id}
-          />
-        ))}
+          >
+            <Link to={`/SelectedProduct/${item.id}`}></Link>
+          </Card>
+        ))
+        .slice(0,9)}
     </div>
   )
 }

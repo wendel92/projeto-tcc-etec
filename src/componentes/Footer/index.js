@@ -30,7 +30,7 @@ export default function Footer() {
               <ul className="list-unstyled">
                 <li>
                   <a href="(11)3659-8524">
-                    <BsTelephone />(11) 3659-8524
+                    <BsTelephone /> (11) 3659-8524
                   </a>
                 </li>
                 <li>
@@ -42,8 +42,9 @@ export default function Footer() {
             </div>
             {/* Coluna 3 */}
             <div className="col">
+              <div className="col-pag"></div>
             <h5>Pagamentos</h5>
-              <div className="col-pag">
+              <div className="col-pag-icons">
                 <FontAwesomeIcon icon={faBarcode} className="icons"/>
                 <FontAwesomeIcon icon={faPix} className="icons"/>
                 <FontAwesomeIcon icon={faCreditCard} className="icons"/>

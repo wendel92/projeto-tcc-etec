@@ -50,14 +50,6 @@ footer {
   column-gap: 8em;
 }
 
-.col-pag {
-  justify-content: space-around;
-  column-gap: 1em;
-  margin-left: 2em;
-  flex-direction: column;
-  padding: 3px;
-}
-
 h5 {
   color: #919191;
 }
@@ -80,7 +72,21 @@ li, ul{
   align-self: flex-start;
   padding: 3px;
   position: relative;
+  gap: 2%;
 }
 
+.col-pag {
+  justify-content: space-around;
+  column-gap: 1em;
+  margin-left: 2em;
+  flex-direction: column;
+  padding: 3px;
+}
+
+.col-pag-icons {
+  align-items: center;
+  justify-content: center;
+  margin-left: 15%;
+}
 
 

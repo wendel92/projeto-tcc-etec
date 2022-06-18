@@ -21,6 +21,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.3",
     "react-dom": "^17.0.2",
+    "react-dropdown": "^1.10.0",
     "react-footer": "^0.0.0",
     "react-hook-form": "^7.29.0",
     "react-icons": "^4.3.1",
