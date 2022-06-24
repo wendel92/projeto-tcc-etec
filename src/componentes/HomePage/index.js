@@ -5,16 +5,18 @@ import Card from '../../componentes/Card'
 
 export default function HomePage() {
   const [cards, setCards] = React.useState([])
-  
+
+  const linksPagamentos = Object({ id: 1, link: 'https://pag.ae/7YoWCRwg4' }, 
+  {id: 2, link: ""},
+  )
 
   useEffect(() => {
-    getAllProducts().then(res => {
+    getAllProducts().then((res) => {
       setCards(res.data)
-    }
-    )
+    })
   }, [])
- 
 
+  // O ARRAY ESTA CONSULTANDO MINHA LISTA DE PRODUTOS NO BD
   const consultarCards = async () => {
     const response = await getAllProducts()
     const lista = []
@@ -23,14 +25,13 @@ export default function HomePage() {
       lista.push(card)
     })
     setCards(lista)
+    console.log(lista, 'lista')
   }
 
   useEffect(() => {
     consultarCards()
-    // consultarImagens()
   }, [])
 
- 
   return (
     <div className="home-page">
       {cards &&
@@ -41,11 +42,11 @@ export default function HomePage() {
             stock={produtos.stock}
             imagem={produtos.image}
             descricao={produtos.description}
+            link={produtos.id == linksPagamentos.id ?? linksPagamentos.link}
             id={produtos.id}
             key={index}
           />
         ))}
-        
     </div>
   )
 }

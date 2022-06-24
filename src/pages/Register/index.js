@@ -7,9 +7,7 @@ import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
 import swal from 'sweetalert'
-// import { ToastContainer, toast } from 'react-toastify'
 
-// import 'react-toastify/dist/ReactToastify.css'
 
 export default function Register() {
   const {
@@ -56,7 +54,7 @@ export default function Register() {
       data.email === '' ||
       data.senha === ''
     )
-      console.log(watch('nome '))
+    console.log(watch('nome '))
     console.log(watch('cpf '))
     console.log(watch('telefone '))
     console.log(watch('email '))
@@ -171,7 +169,7 @@ export default function Register() {
         <span className="field">Email*</span>
         <div className="wrap-input inputIn">
           <input
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             {...register('email', { required: true })}
             className={email !== '' ? 'has-val input' : 'input'}
             type="text"

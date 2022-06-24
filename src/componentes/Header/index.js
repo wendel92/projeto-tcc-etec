@@ -9,11 +9,8 @@ import {
   Form,
   FormControl,
 } from 'react-bootstrap'
-import CartButton from './../Cart/CartButton'
-import Cart from './../Cart/Cart'
-import { useSelector, useDispatch } from 'react-redux'
+
 export default function Header() {
-  const showCart = useSelector((state) => state.ui.cartIsVisible)
   return (
     // <div classname="div">
     <>
@@ -40,30 +37,15 @@ export default function Header() {
               <Nav.Link className="link" eventKey={2} href="/Register">
                 Cadastre-se
               </Nav.Link>
-              {/* <Form className="d-flex">
-          <FormControl
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-          />
-          <Button className="buttonSearch" variant="outline-success">Search</Button>
-        </Form> */}
 
               <Nav.Link>
-                <div className="cartIcon">
-                  
-                  <CartButton />
-                </div>
+                <div className="cartIcon"></div>
               </Nav.Link>
-              <div>
-               
-              </div>
+              <div></div>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {showCart && <Cart />}
     </>
     //  </div>
   )

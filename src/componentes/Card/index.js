@@ -4,9 +4,7 @@ import api from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 
 export default function Card(produtos) {
-  const [user, setUser] = useState()
   const [valor, setValor] = useState('')
-  const [data, setData] = useState('')
 
   useEffect(() => {
     setValor(produtos.preco.replace('.', ','))
@@ -20,13 +18,15 @@ export default function Card(produtos) {
     // Tem que ser sempre um botão ou algo que recebe uma ação de Evento do DOM
     // Para voce poder acessar o evento via propriedade da função (e)
     // e.currentTarget.id (evento recebido através do click (recebe o ID que vinculamos no botão))
+
     navigate('/selectedProduct', {
       state: {
         id: e.currentTarget.id,
         nome_prod: produtos.nome,
         imagem_prod: produtos.imagem,
         preco_prod: produtos.preco,
-        
+        descricao_prod: produtos.descricao,
+        link: produtos.link,
       },
     })
   }
@@ -35,9 +35,10 @@ export default function Card(produtos) {
     <div className="card-container">
       <div className="description">
         {/* Precisa receber um ID no loop para ser vinculado ao item JSX (componentes) */}
-        <button onClick={handleClick} id={produtos.id}>
+        <button className="wrapperImg" onClick={handleClick} id={produtos.id}>
           <img className="productImage" src={produtos.imagem} alt={''} />
         </button>
+        <br />
         <p className="font-description">{produtos.nome}</p>
 
         <b>

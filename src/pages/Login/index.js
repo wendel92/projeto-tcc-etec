@@ -7,14 +7,14 @@ import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import swal from 'sweetalert'
 
-// TELA DE LOGIN - TELA EM ANDAMENTO
+
 export default function Login() {
   const navigate = useNavigate()
 
   const {
     register,
     handleSubmit,
-
+    
     formState: { errors },
   } = useForm()
 
@@ -30,13 +30,7 @@ export default function Login() {
 
     // Validate input filling
     if (data.email === '' || data.senha === '') {
-      swal({
-        title: 'Ops!',
-        text: 'Preencha todos os campos',
-        icon: 'warning',
-        button: 'OK',
-        // timer: 2000,
-      })
+      navigate('erro')
     } else {
       api
         .post('/login', {
@@ -45,22 +39,29 @@ export default function Login() {
         })
 
         .then(function (data) {
-          console.log(data)
+          navigate('/homepage', data)
+          swal({
+            title: 'Login realizado com sucesso!',
+            text: 'Bem vindo(a) ' + data.data.name,
+            icon: 'success',
+            button: 'OK',
+          })
+
+          console.log(data, 'eu estou testando o data')
+
+          setEmail('')
+          setSenha('')
         })
         .catch(function (e) {
-          console.log(e)
+          swal({
+            title: 'Ops!',
+            text: 'Email ou senha incorretos!!',
+            icon: 'warning',
+            button: 'OK',
+          })
+
+          console.log(e, 'VENDO O ERRO DE PERTO!!')
         })
-
-      setEmail('')
-      setSenha('')
-
-      swal({
-        title: 'Parabéns!',
-        text: 'Login realizado com sucesso',
-        icon: 'success',
-        button: 'OK',
-        timer: 3000,
-      })
     }
   }
 
@@ -77,13 +78,13 @@ export default function Login() {
         <span className="field">Email*</span>
         <div className="wrap-input inputIn">
           <input
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            pattern="[Aa-z0-9._%+- ]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             {...register('email', { required: true })}
             className={email !== '' ? 'has-val input' : 'input'}
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Ex: nome.sobrenome@dominio.com"
+            placeholder="Ex: teste@teste.com"
           />
           {errors.email && (
             <span className="field-email">Preencha o campo EMAIL*</span>
@@ -99,7 +100,7 @@ export default function Login() {
             type="password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
-            placeholder="Ex: ******"
+            placeholder="Ex: QueMomento@123"
           />
           {errors.senha && (
             <span className="field-senha">Preencha o campo SENHA*</span>
@@ -107,7 +108,7 @@ export default function Login() {
         </div>
 
         {/* BOTÃO DE LOGIN */}
-        <button className="area-botao" onClick={() => navigate('/homepage')}>
+        <button className="area-botao" onClick={() => navigate('')}>
           Login
         </button>
 
