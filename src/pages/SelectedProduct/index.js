@@ -3,7 +3,6 @@ import './style.css'
 import React from 'react'
 import Header from '../../componentes/Header'
 import Footer from '../../componentes/Footer'
-import Card from '../../componentes/Card'
 import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
@@ -20,12 +19,36 @@ export default function SelectedProduct(props) {
   console.log(idDoProduto)
 
   const linksPagamentos = Object(
-    { id: 1, link: 'https://pag.ae/7YoWCRwg4' },
-    { id: 2, link: '/homepage' },
-    { id: 3, link: '/homepage' },
-    { id: 4, link: '/homepage' },
-    { id: 5, link: '/homepage' },
-    { id: 6, link: '/homepage' }
+    { id: 1, link: 'https://pag.ae/7Yp2hADX5' },
+    { id: 2, link: 'https://pag.ae/7Yp2jwFm4' },
+    { id: 3, link: 'https://pag.ae/7Yp2koKKn' },
+    { id: 4, link: 'https://pag.ae/7Yp2o8Ueo' },
+    { id: 5, link: 'https://pag.ae/7Yp2qbiQp' },
+    { id: 6, link: 'https://pag.ae/7Yp2uSM7L' },
+    { id: 7, link: 'https://pag.ae/7Yp2xw3nJ' },
+    { id: 8, link: 'https://pag.ae/7Yp2BiZun' },
+    { id: 9, link: 'https://pag.ae/7Yp2DWmHJ' },
+    { id: 10, link: 'https://pag.ae/7Yp2MgN4p' },
+    { id: 11, link: 'https://pag.ae/7Yp2NKExH' },
+    { id: 12, link: 'https://pag.ae/7Yp2Q_HM7' },
+    { id: 13, link: 'https://pag.ae/7Yp2S37Vn' },
+    { id: 14, link: 'https://pag.ae/7Yp2TxECN' },
+    { id: 15, link: 'https://pag.ae/7Yp2VGqzo' },
+    { id: 16, link: 'https://pag.ae/7Yp2Xk7sG' },
+    { id: 17, link: 'https://pag.ae/7Yp2Yw2w3' },
+    { id: 18, link: 'https://pag.ae/7Yp3snAeo' },
+    { id: 19, link: 'https://pag.ae/7Yp3tJbhN' },
+    { id: 20, link: 'https://pag.ae/7Yp3uXw4q' },
+    { id: 21, link: 'https://pag.ae/7Yp3vXqM5' },
+    { id: 22, link: 'https://pag.ae/7Yp3wRPuq' },
+    { id: 23, link: 'https://pag.ae/7Yp3y8nYL' },
+    { id: 24, link: 'https://pag.ae/7Yp3zgKB4' },
+    { id: 25, link: 'https://pag.ae/7Yp3AdUxL' },
+    { id: 26, link: 'https://pag.ae/7Yp3BrgX3' },
+    { id: 27, link: 'https://pag.ae/7Yp3CsxHL' },
+    { id: 28, link: 'https://pag.ae/7Yp3Dfdpp' },
+    { id: 29, link: 'https://pag.ae/7Yp3EignN' },
+    { id: 30, link: 'https://pag.ae/7Yp3FfiVs' }
   )
 
   function componentDidMount() {
@@ -80,10 +103,9 @@ export default function SelectedProduct(props) {
               {/* Feito o ternario, para bater com o id da lista */}
               <a
                 href={
-                  idDoProduto == linksPagamentos.id
-                    ? linksPagamentos.link
-                    : '/homepage'
+                  idDoProduto == linksPagamentos.id ? linksPagamentos.link : ""
                 }
+                  
                 className="btn"
               >
                 <span className="text-btn">COMPRAR AGORA</span>
