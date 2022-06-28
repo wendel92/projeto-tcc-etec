@@ -14,11 +14,10 @@ export default function SelectedProduct(props) {
   const imagemProduto = location.state.imagem_prod
   const valorDoProduto = location.state.preco_prod
   const descricaoDoProduto = location.state.descricao_prod
-  const linkPagamento = location.state.link
 
   console.log(idDoProduto)
 
-  const linksPagamentos = Object(
+  const linksPagamentos = [
     { id: 1, link: 'https://pag.ae/7Yp2hADX5' },
     { id: 2, link: 'https://pag.ae/7Yp2jwFm4' },
     { id: 3, link: 'https://pag.ae/7Yp2koKKn' },
@@ -48,8 +47,8 @@ export default function SelectedProduct(props) {
     { id: 27, link: 'https://pag.ae/7Yp3CsxHL' },
     { id: 28, link: 'https://pag.ae/7Yp3Dfdpp' },
     { id: 29, link: 'https://pag.ae/7Yp3EignN' },
-    { id: 30, link: 'https://pag.ae/7Yp3FfiVs' }
-  )
+    { id: 30, link: 'https://pag.ae/7Yp3FfiVs' },
+  ]
 
   function componentDidMount() {
     window.scrollTo(0, 0)
@@ -101,13 +100,7 @@ export default function SelectedProduct(props) {
               </button> */}
 
               {/* Feito o ternario, para bater com o id da lista */}
-              <a
-                href={
-                  idDoProduto == linksPagamentos.id ? linksPagamentos.link : ""
-                }
-                  
-                className="btn"
-              >
+              <a href={linksPagamentos[idDoProduto - 1].link} className="btn">
                 <span className="text-btn">COMPRAR AGORA</span>
               </a>
               <br />
